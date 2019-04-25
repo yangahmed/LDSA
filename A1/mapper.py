@@ -9,11 +9,11 @@ for line in sys.stdin:
     # parse the tweets
     tweet = json.loads(line)
     # disregard the "retweets"
-    if not tweet['retweeted_status']
+    if 'retweeted_status' not in tweet:
         # read the text
         text = tweet['text']
         # split the line into words
-        words = text.split().lower()
+        words = text.split()
         # increase counters
         for word in words:
             # write the results to STDOUT (standard output);
@@ -21,21 +21,20 @@ for line in sys.stdin:
             # Reduce step, i.e. the input for reducer.py
             #
             # tab-delimited; the trivial word count is 1
-            if word == 'han'
-                print '%s\t%s' % (word, 1) 
-            elif word == 'hon'
-                print '%s\t%s' % (word, 1) 
-            elif word == 'den'
-                print '%s\t%s' % (word, 1) 
-            elif word == 'det'
-                print '%s\t%s' % (word, 1) 
-            elif word == 'denna'
-                print '%s\t%s' % (word, 1) 
-            elif word == 'denne'
-                print '%s\t%s' % (word, 1) 
-            elif word == 'hen'
-                print '%s\t%s' % (word, 1) 
+            if word.lower() == 'han':
+                print(word, 1, sep='\t') 
+            elif word.lower() == 'hon':
+                print(word, 1, sep='\t') 
+            elif word.lower() == 'den':
+                print(word, 1, sep='\t') 
+            elif word.lower() == 'det':
+                print(word, 1, sep='\t') 
+            elif word.lower() == 'denna':
+                print(word, 1, sep='\t')
+            elif word.lower() == 'denne':
+                print(word, 1, sep='\t') 
+            elif word.lower() == 'hen':
+                print(word, 1, sep='\t')
         
         # count this tweet as 'unique'
-        print '%s\t%s' % ('total_unique', 1) 
-            
+        print('total_unique', 1, sep='\t') 
